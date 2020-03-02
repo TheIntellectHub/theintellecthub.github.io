@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <body onload=>
+    </body>
+    
+    <!-- Firebase Script -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+
+    <!-- Script for mail sending -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAfa0QgAgW5BfPfr2p8HakuYpyKISvoF5w",
+        authDomain: "intellect-fa835.firebaseapp.com",
+        databaseURL: "https://intellect-fa835.firebaseio.com",
+        projectId: "intellect-fa835",
+        storageBucket: "intellect-fa835.appspot.com",
+        messagingSenderId: "76635538021",
+        appId: "1:76635538021:web:cf2bf93090dcfae203fc8c",
+        measurementId: "G-CSFLRF4KHP"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      //Make auth and realtime references
+      var auth = firebase.auth();
+      var db = firebase.database()
+    </script>
+
+    <!-- Run Personal Script -->
+    <script type="text/javascript" src="/logoutpage/logoutpage.js"></script>
+
+
+</html>
+

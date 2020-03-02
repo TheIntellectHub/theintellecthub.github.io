@@ -1,0 +1,33 @@
+/* homepage.css Ordered By Functionality, main tags then classes then id (each in alpha order) */
+/* Navbar */
+a {
+    font-size: 20px;
+}
+i {
+    margin-right: 5px;
+}
+.split {
+    border-right: solid;
+}
+
+.center {
+    margin: auto;
+    width: 23%;
+  }
+.jumbotron {
+    position: center;
+}
+.jumbotron > div {
+    margin: 10px;
+    padding-top: 1000px;
+  }
+
+.subtitle-box {
+    border-left: 15px solid #F3BF44;
+    padding-left: 10px;
+}
+
+.nav>li>a {
+    background-color: #F4C746;
+    color: #24272B;
+}

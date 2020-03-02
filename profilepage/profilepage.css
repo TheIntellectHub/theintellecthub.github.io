@@ -1,0 +1,148 @@
+/* homepage.css Ordered By Functionality, main tags then classes then id (each in alpha order) */
+/* Navbar */
+a {
+    font-size: 20px;
+}
+i {
+    margin-right: 5px;
+}
+.split {
+    border-right: solid;
+}
+
+/* Jumbotron */
+.buttonjumbo { 
+    font-size: 25px;
+    margin: -20px -50px; 
+    position:relative;
+    top:50%; 
+    left:50%
+}
+.inverted-logo {
+    filter: brightness(0) invert(1);
+}
+.jumbotron {
+    background-image: url(img/profilebackground.png);
+    background-position: 410px;
+}
+
+.progress > div{
+    padding-bottom: 100px;
+}
+.rotate-button {
+    display:inline-block;
+    width:150px;
+    height: 30px;
+    text-align:center;
+    transform-style:preserve-3d;
+    cursor:pointer;
+    transition:all .3s ease;
+    font-family: 'arial'
+}
+.rotate-button .rotate-button-face, .rotate-button .rotate-button-face-back {
+    position:absolute;
+    display:block;
+    border:1px solid #f5c600;
+    transition:all .5s;
+    color:#f5c600;
+    text-decoration:none;
+    width:150px;
+    height: 30px;
+    line-height:30px;
+    border-radius: 4px;
+}
+
+.flex-box{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: right;    
+    justify-content: right;
+  }
+
+.flex-box > div {
+    margin: 10px;
+    padding: 5px;
+  }
+.rotate-button .rotate-button-face {
+    background-color:#fff;
+    transform:translateZ(15px);
+}
+.rotate-button .rotate-button-face-back {
+    background-color:#f5c600;
+    color: white;
+    border:1px solid white;
+    transform:rotateX(-90deg) translateZ(15px);
+}
+.rotate-button:hover {
+    transform:rotateX(90deg);
+}
+.textjumbo {
+    margin-left: 50px;
+}
+
+/* Recent Activity section*/
+ul {
+    overflow: scroll;
+    max-height: 450px;
+}
+.border {
+    border-style: solid;
+}
+
+/* Info section */
+.carousel-caption{
+    margin-bottom: 20%;
+    background: rgba(0,0,0,0.6);
+}
+.carousel {
+    width: 100%;
+    max-height: 450px;
+    overflow: hidden;
+}
+
+/* Popular types of Jokes section */
+.card-font {
+    font-weight: bolder;
+    font-size: xx-large;
+    margin: auto;
+}
+.distance {
+    margin-top: 20px;
+}
+.flip-card {
+    perspective: 1000px; /* 3D effect */
+}
+.flip-card-inner {/* Do an horizontal flip when you move the mouse over the flip box container - PLEASE INCLUDE ONCLICK IN JS FILE*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}   
+.flip-card:hover .flip-card-inner {/* Do an horizontal flip when you move the mouse over the flip box container - PLEASE INCLUDE ONCLICK IN JS FILE*/
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {/* Position the front and back side */
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    backface-visibility: hidden;
+}
+.flip-card-front {/* Style the front side*/
+    background-position: center;
+    background-size: cover;
+} 
+.flip-card-back {/* Style the back side */
+    background-position: center;
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+/* General */
+.subtitle-box {
+    border-left: 15px solid #f5c600;
+    padding-left: 10px;
+}
+
+

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/8eb1bbd4d4.js" crossorigin="anonymous"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- CSS Stylsheet -->
+    <link rel = "stylesheet" type = "text/css" href = "jokepage.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Intellect Joke Page</title>
+  </head>
+  <body onload="start()">
+
+    <!-- Navbar, 4 options to choose from, 2 of them are main web app functions that will have more within them -->
+    <nav class="navbar fixed-top navbar-expand-sm bg-dark navbar-dark" style="position:fixed;width:100%;opacity:0.95;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/homepage/homepage.html" style="color: #b3b3b3">Intellect <img src="img/iconlight.png" width="40px"></a>
+        <!-- If screen is small enough, make the options on navbar a button  -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-sm-end" id="mainNav">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link split" href=""><i class="fab fa-buffer"></i>Jokes</a>
+            <a class="nav-item nav-link split" href="/profilepage/profilepage.html"><span id="navprof"></span>Profile</a>
+            <a class="nav-item nav-link" href="/logoutpage/logoutpage.html">Logout</a> 
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Jumbotron to upload joke -->
+    <div class="carousel slide">
+      <svg width="100%" height="500px"><rect width="100%" height="100%" fill="#F4C746"/></svg>
+        <div class="carousel-caption text-left text-dark">
+          <img src="img/icongrey.png" width="125px"> <br><br>
+          <h1>Intellect Joke Page </h1>
+          <p>Welcome to the jokepage. Upload a joke or scroll down and browse!</p>
+          <p>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
+              Upload a Joke!
+            </button>
+          </p>
+        </div>
+    </div>
+    
+
+      <!-- Modal thing for eric an -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Upload a Joke</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="upload-form2">
+              <!-- Two part -->
+              <p class="text-mute text-lg text-center">Upload a two-line joke!<br>
+              </p>
+              <div class="form-group">
+                <label>Select Category</label>
+                <select class="form-control" id="categorytwo">
+                  <option>Category</option>
+                  <option>Business</option>
+                  <option>College</option>
+                  <option>Computer</option>
+                  <option>Dad Jokes</option>
+                  <option>Dark</option>
+                  <option>Dumbass</option>
+                  <option>Doctor</option>
+                  <option>Entertainment</option>
+                  <option>Law</option>
+                  <option>Knock Knock</option>
+                  <option>Love</option>
+                  <option>Marriage</option>
+                  <option>National</option>
+                  <option>Pick-Up Line</option>
+                  <option>Police</option>
+                  <option>Political</option>
+                  <option>Pun</option>
+                  <option>Racist</option>
+                  <option>Relationship</option>
+                  <option>Religious</option>
+                  <option>School</option>
+                  <option>Sports</option>
+                  <option>Word-Play</option>
+                  <option>Work</option>
+                </select>                
+              </div>
+              <div class="form-group">
+                <label for="line1">Setup</label>
+                <div id="knock-knock"></div>
+                <input type="first" class="form-control" id="firstline" aria-describedby="firstline" placeholder="Enter Setup">
+              </div>
+              <div class="form-group">
+                <label for="line2">Punchline</label>
+                <div id="knock-knock2"></div>
+                <input type="second" class="form-control" id="secondline" placeholder="Enter Punchline">
+              </div>
+              <div id="messageinputjoke2" class="text-center text-danger"></div>
+              <div id="smessageinputjoke2" class="text-center text-success"></div><br>
+              <div class="modal-footer">
+                <button type="submut" class="btn btn-warning">Submit</button>
+              </div>
+            </form>
+              <p class="text-mute text-lg text-center">Upload a one-line joke!</p>
+              <!-- One liner -->
+            <form id="upload-form">
+              <div class="form-group">
+                <label>Select Category</label>
+                <select class="form-control" id="categoryone">
+                  <option>Category</option>
+                  <option>Business</option>
+                  <option>College</option>
+                  <option>Computer</option>
+                  <option>Dad Jokes</option>
+                  <option>Dark</option>
+                  <option>Dumbass</option>
+                  <option>Doctor</option>
+                  <option>Entertainment</option>
+                  <option>Law</option>
+                  <option>Love</option>
+                  <option>Marriage</option>
+                  <option>National</option>
+                  <option>Pick-Up Line</option>
+                  <option>Police</option>
+                  <option>Political</option>
+                  <option>Pun</option>
+                  <option>Racist</option>
+                  <option>Relationship</option>
+                  <option>Religious</option>
+                  <option>School</option>
+                  <option>Sports</option>
+                  <option>Word-Play</option>
+                  <option>Work</option>
+                  <option>Yo Momma</option>
+                </select>                 
+              </div>
+              <div class="form-group">
+                <label for="line1">Joke</label>
+                <div id="yo-mama"></div>
+                <input type="first" class="form-control" id="jokeline" aria-describedby="firstline" placeholder="Enter Joke">
+              </div>
+              <div id="messageinputjoke" class="text-center text-danger"></div>
+              <div id="smessageinputjoke" class="text-center text-success"></div><br>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-warning">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+ <br>
+    
+  <!-- Tabs -->
+  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Jokes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="my-tab" data-toggle="tab" href="#my" role="tab" aria-controls="my" aria-selected="false">My Jokes</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab"><br>            
+      <form class="form-inline">
+        <select class="form-control" style="width: 40%;margin-left: 20%;" id="categoryfilter">
+          <option>Select Category of Joke (Select This Option For All Jokes)</option>
+          <option>Business</option>
+          <option>College</option>
+          <option>Computer</option>
+          <option>Dad Jokes</option>
+          <option>Dark</option>
+          <option>Dumbass</option>
+          <option>Doctor</option>
+          <option>Entertainment</option>
+          <option>Law</option>
+          <option>Knock Knock</option>
+          <option>Love</option>
+          <option>Marriage</option>
+          <option>National</option>
+          <option>Pick-Up Line</option>
+          <option>Police</option>
+          <option>Political</option>
+          <option>Pun</option>
+          <option>Racist</option>
+          <option>Relationship</option>
+          <option>Religious</option>
+          <option>School</option>
+          <option>Sports</option>
+          <option>Word-Play</option>
+          <option>Work</option>
+          <option>Yo Momma</option>
+        </select>
+        <select class="form-control" style="width: 20%;margin-right: 20%;" id="typefilter">
+          <option>Most Recent Jokes</option>
+          <option>Older Jokes</option>
+          <option>Most Popular Jokes</option>
+        </select>
+      </form>
+      <br>
+      <div class="mx-auto" style="width: fit-content;">
+        <button type="button" onclick="filter()" class="btn-lg btn-dark">Filter</button>
+      </div>
+      <br>
+      <div id="jokes"></div>
+    </div>
+    <div class="tab-pane fade justify-content-center" id="my" role="tabpanel" aria-labelledby="my-tab">
+      <br>
+      <div id="myjokes"></div>
+    </div>
+    
+    <!-- Firebase Script -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAfa0QgAgW5BfPfr2p8HakuYpyKISvoF5w",
+        authDomain: "intellect-fa835.firebaseapp.com",
+        databaseURL: "https://intellect-fa835.firebaseio.com",
+        projectId: "intellect-fa835",
+        storageBucket: "intellect-fa835.appspot.com",
+        messagingSenderId: "76635538021",
+        appId: "1:76635538021:web:cf2bf93090dcfae203fc8c",
+        measurementId: "G-CSFLRF4KHP"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      //Make auth and realtime references
+      var auth = firebase.auth();
+      var db = firebase.database()
+    </script>
+
+    <script>
+      $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+
+    <!-- Run Personal Script -->
+    <script type="text/javascript" src="jokepage.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
