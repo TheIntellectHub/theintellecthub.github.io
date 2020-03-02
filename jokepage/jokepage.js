@@ -395,7 +395,7 @@ auth.onAuthStateChanged(user => {
                         })        
                         location.reload();     
                     }).catch(function(error) {
-                    document.getElementById('messageinputjoke2').innerHTML = 'Could not upload joke.<br>The joke is too long or blank';
+                    document.getElementById('messageinputjoke2').innerHTML = 'Could not upload joke.<br>Error Message:'+error;
                     })
                 }
               })
@@ -441,14 +441,14 @@ auth.onAuthStateChanged(user => {
                         })        
                         location.reload();     
                     }).catch(function(error) {
-                    document.getElementById('messageinputjoke').innerHTML = 'Could not upload joke.<br>The joke is too long or blank';
+                    document.getElementById('messageinputjoke').innerHTML = 'Could not upload joke.<br>Error Message:'+error;
                     })
                 }
                 })
             })
     }
     else {
-        window.location.replace("/index.html");;
+        window.location.replace("/index.html");
     }
 })
         
