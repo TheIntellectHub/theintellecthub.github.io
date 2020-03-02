@@ -356,7 +356,7 @@ auth.onAuthStateChanged(user => {
                         date_posted: js_time,
                         id: id,
                         setup: setup,
-                        punchline: punchline,
+                        joke: punchline,
                         type: 'twopart',
                     }).then(() => {
                         document.getElementById('smessageinputjoke2').innerHTML = 'Success';
