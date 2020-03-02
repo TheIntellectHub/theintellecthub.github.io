@@ -130,6 +130,6 @@ auth.onAuthStateChanged(user => {
         })        
     }
     else {
-        window.location.replace("/loginpage/loginpage.html");
+        window.location.replace("/index.html");;
     }
 })
