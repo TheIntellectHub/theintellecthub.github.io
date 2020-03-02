@@ -273,36 +273,6 @@ function deletejoke(jokeid) {
     })     
 }
 
-//Random joke generator - NEEDS EDITING ***********************************
-function ranData() {
-    db.ref('/').once('value', function(snapshot) {
-      var id = snapshot.val().id
-      var ranid = Math.floor(Math.random() * id);
-      console.log(ranid);
-      var ranpostsdiv = document.getElementById("generate");
-      ranpostsdiv.innerHTML = ""
-      db.ref('/jokes/joke'+ranid).once('value', function(snapshot) {
-            
-            for (i=snapshot.numChildren()-1; i >= 0; i--){
-                var lastindex =  Object.keys(snapshot.val())[i];
-
-                if (snapshot.val()[lastindex].type == "single" & snapshot.val()[lastindex].category !="Yo Momma"){
-                ranpostsdiv.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
-                }
-                else if (snapshot.val()[lastindex].category =="Yo Momma"){
-                ranpostsdiv.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Yo momma is so '+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
-                }
-                else if (snapshot.val()[lastindex].type == "twopart" & snapshot.val()[lastindex].category !="Knock Knock") {
-                ranpostsdiv.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].punchline +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
-                }
-                else if (snapshot.val()[lastindex].category == "Knock Knock") {
-                ranpostsdiv.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Knock Knock!</p><p>Who\'s there?<p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].setup +' who?</p><p>'+ snapshot.val()[lastindex].punchline +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
-                }
-            }
-        });
-    });
-}
-
 //Show jokes previous input - part of upload jokes for two liner
 var uploadform2 = document.getElementById('upload-form2');
 uploadform2.addEventListener('change', e => {
