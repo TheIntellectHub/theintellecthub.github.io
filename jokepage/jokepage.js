@@ -395,7 +395,7 @@ auth.onAuthStateChanged(user => {
                         })        
                         location.reload();     
                     }).catch(function(error) {
-                    document.getElementById('messageinputjoke2').innerHTML = 'Could not upload joke.<br>Error Message:'+error;
+                    document.getElementById('messageinputjoke2').innerHTML = 'Could not upload joke.<br>The joke is too long or blank';
                     })
                 }
               })
@@ -441,7 +441,7 @@ auth.onAuthStateChanged(user => {
                         })        
                         location.reload();     
                     }).catch(function(error) {
-                    document.getElementById('messageinputjoke').innerHTML = 'Could not upload joke.<br>Error Message:'+error;
+                    document.getElementById('messageinputjoke').innerHTML = 'Could not upload joke.<br>The joke is too long or blank';
                     })
                 }
                 })
