@@ -4,6 +4,6 @@ auth.onAuthStateChanged(user => {
         auth.signOut()
     }
     else {
-        window.location.replace("index.html");
+        window.location.replace("/index.html");
     }
 })
