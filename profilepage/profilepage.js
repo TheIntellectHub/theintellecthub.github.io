@@ -101,7 +101,7 @@ auth.onAuthStateChanged(user => {
                         location.reload();
                     })
                 }).catch(function(error) {
-                    document.getElementById('errmessage2').innerHTML = 'Permission denied: '+error
+                    document.getElementById('errmessage2').innerHTML = error
                 }).catch(err => {
                     var credential = firebase.auth.EmailAuthProvider.credential(user.email, password);
                     console.log(credential);
