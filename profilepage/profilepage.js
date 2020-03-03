@@ -94,7 +94,9 @@ auth.onAuthStateChanged(user => {
             var password = changeemail['password'].value;
 
             if (email == email2) {
-                auth.currentUser.updateEmail(email).then(() => {
+                auth.currentUser.updateEmail(email).catch(function(error) {
+                    document.getElementById('errmessage2').innerHTML = 'Permission denied: '+error
+                }).then(() => {
                     user.sendEmailVerification().then(()=> {
                         document.getElementById('successmessage2').innerHTML = 'Success';
                         console.log('success change & email verification')
@@ -103,7 +105,7 @@ auth.onAuthStateChanged(user => {
                 }).catch(err => {
                     var credential = firebase.auth.EmailAuthProvider.credential(user.email, password);
                     console.log(credential);
-                    
+
                     user.reauthenticateWithCredential(credential).catch(err => {
                         document.getElementById('errmessage2').innerHTML = 'Please Input Password/The password inputted is incorrect'
                     })
