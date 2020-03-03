@@ -100,8 +100,8 @@ auth.onAuthStateChanged(user => {
                         console.log('success change & email verification')
                         location.reload();
                     })
-                }).catch(function(error) {
-                    document.getElementById('errmessage2').innerHTML = error
+                }).catch(err => {
+                    document.getElementById('errmessage2').innerHTML = err.message
                 }).catch(err => {
                     var credential = firebase.auth.EmailAuthProvider.credential(user.email, password);
                     console.log(credential);
