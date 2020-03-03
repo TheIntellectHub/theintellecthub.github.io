@@ -94,14 +94,14 @@ auth.onAuthStateChanged(user => {
             var password = changeemail['password'].value;
 
             if (email == email2) {
-                auth.currentUser.updateEmail(email).catch(function(error) {
-                    document.getElementById('errmessage2').innerHTML = 'Permission denied: '+error
-                }).then(() => {
+                auth.currentUser.updateEmail(email).then(() => {
                     user.sendEmailVerification().then(()=> {
                         document.getElementById('successmessage2').innerHTML = 'Success';
                         console.log('success change & email verification')
                         location.reload();
                     })
+                }).catch(function(error) {
+                    document.getElementById('errmessage2').innerHTML = 'Permission denied: '+error
                 }).catch(err => {
                     var credential = firebase.auth.EmailAuthProvider.credential(user.email, password);
                     console.log(credential);
