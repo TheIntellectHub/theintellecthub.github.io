@@ -101,14 +101,14 @@ auth.onAuthStateChanged(user => {
                         location.reload();
                     })
                 }).catch(err => {
+                    document.getElementById('errmessage2').innerHTML = err.message
+
                     var credential = firebase.auth.EmailAuthProvider.credential(user.email, password);
                     console.log(credential);
 
                     user.reauthenticateWithCredential(credential).catch(err => {
                         document.getElementById('errmessage2').innerHTML = err.message
                     })
-                }).catch(err => {
-                    document.getElementById('errmessage2').innerHTML = err.message
                 })
             }
             else {
