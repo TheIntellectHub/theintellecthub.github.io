@@ -72,7 +72,7 @@ auth.onAuthStateChanged(user => {
             catval: "Select Category of Joke (Select This Option For All Jokes)"
         })
 
-        //input fields (displayname, navbar & slide prof pic, popular categories)
+        //input fields (displayname, navbar & slide prof pic, popular categories, 'preferred jokes' jokes)
         document.getElementById("uname").innerHTML = user.displayName;
 
         var picdiv = document.getElementById('upic');
@@ -127,7 +127,111 @@ auth.onAuthStateChanged(user => {
             document.getElementById('pop2').value = pop2name;
             document.getElementById('pop3').innerHTML = pop3name;
             document.getElementById('pop3').value = pop3name;
-        })        
+        })
+        
+        db.ref('/users/'+user.uid).once('value', function(snapshot) {
+            joke1 = snapshot.val().fav1
+            joke2 = snapshot.val().fav2
+            joke3 = snapshot.val().fav3
+
+            if (joke1 == '') {
+                document.getElementById('profileproblem').innerHTML = 'Please update profile settings to use this feature'
+            }
+            else {
+                console.log(joke1, joke2, joke3)
+                jokesdiv1 = document.getElementById('preferredjokes1')
+                jokestitle1 = document.getElementById('preferredjokestitle1')
+                jokesdiv2 = document.getElementById('preferredjokes2')
+                jokestitle2 = document.getElementById('preferredjokestitle2')
+                jokesdiv3 = document.getElementById('preferredjokes3')
+                jokestitle3 = document.getElementById('preferredjokestitle3')
+                
+                db.ref('/').once('value', function(snapshot) {
+                
+                    var id = snapshot.val().id
+                    console.log(id)
+
+                    for (i=id-1; i>=0; i--) {
+                        db.ref('/jokes/joke'+i).once('value', function(snapshot) {
+
+                            var lastindex =  Object.keys(snapshot.val());
+                            
+                            if (snapshot.val()[lastindex].category == joke1) {
+                                jokesdiv1.value = 'good'
+
+                                if (snapshot.val()[lastindex].type == "single" & snapshot.val()[lastindex].category !="Yo Momma"){
+                                    jokesdiv.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].category =="Yo Momma"){
+                                    jokesdiv1.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Yo momma is so '+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].type == "twopart" & snapshot.val()[lastindex].category !="Knock Knock") {
+                                    jokesdiv1.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].category == "Knock Knock") {
+                                    jokesdiv1.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Knock Knock!</p><p>Who\'s there?<p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].setup +' who?</p><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                            }
+                            else if (snapshot.val()[lastindex].category == joke2) {
+                                jokesdiv2.value = 'good'
+                
+                                if (snapshot.val()[lastindex].type == "single" & snapshot.val()[lastindex].category !="Yo Momma"){
+                                    jokesdiv.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].category =="Yo Momma"){
+                                    jokesdiv2.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Yo momma is so '+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].type == "twopart" & snapshot.val()[lastindex].category !="Knock Knock") {
+                                    jokesdiv2.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].category == "Knock Knock") {
+                                    jokesdiv2.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Knock Knock!</p><p>Who\'s there?<p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].setup +' who?</p><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                            }
+                            else if (snapshot.val()[lastindex].category == joke3) {
+                                jokesdiv3.value = 'good'
+
+                                if (snapshot.val()[lastindex].type == "single" & snapshot.val()[lastindex].category !="Yo Momma"){
+                                    jokesdiv3.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].category =="Yo Momma"){
+                                    jokesdiv3.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Yo momma is so '+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].type == "twopart" & snapshot.val()[lastindex].category !="Knock Knock") {
+                                    jokesdiv3.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                                else if (snapshot.val()[lastindex].category == "Knock Knock") {
+                                    jokesdiv3.innerHTML += '<div style="padding-left:15rem; padding-right:15rem"><div class="card"><div class="card-header">#'+snapshot.val()[lastindex].category+'</div><div class="card-body"><blockquote class="blockquote mb-0"><p>Knock Knock!</p><p>Who\'s there?<p>'+ snapshot.val()[lastindex].setup +'</p><p>'+ snapshot.val()[lastindex].setup +' who?</p><p>'+ snapshot.val()[lastindex].joke +'</p><footer class="blockquote-footer">Created By: <cite title="Source Title">'+ snapshot.val()[lastindex].author +'</cite></footer></blockquote></div><div class="card-footer text-muted">'+ snapshot.val()[lastindex].date_posted +'</div></div></div><br>'
+                                }
+                            }
+                        }).then(() => {
+                            if (jokesdiv1.value == undefined) {
+                                jokestitle1.innerHTML = '<h3>No Jokes For '+joke1+' Available Yet!</h3>'
+                            }
+                            else {
+                                jokestitle1.innerHTML = ''
+                                jokestitle1.innerHTML = '<h3>Jokes For '+joke1+':</h3>'
+                            }
+                            if (jokesdiv2.value == undefined) {
+                                jokestitle2.innerHTML = '<h3>No Jokes For '+joke2+' Available Yet!</h3>'
+                            }
+                            else {
+                                jokestitle2.innerHTML = ''
+                                jokestitle2.innerHTML = '<h3>Jokes For '+joke2+':</h3>'
+                            }
+                            if (jokesdiv3.value == undefined) {
+                                jokestitle3.innerHTML = '<h3>No Jokes For '+joke3+' Available Yet!</h3>'
+                            }
+                            else {
+                                jokestitle3.innerHTML = ''
+                                jokestitle3.innerHTML = '<h3>Jokes For '+joke3+':</h3>'
+                            }
+                        });
+                    }
+                });
+            }
+        });    
+        
     }
     else {
         window.location.replace("/index.html");;
