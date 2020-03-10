@@ -20,6 +20,8 @@ function setdata() {
     Love: 0,
     Marriage: 0,
     National: 0,
+    Miscellaneous:0,
+    Science: 0,
    'Pick-Up Line': 12,
     Police: 0,
     Political: 0,
