@@ -40,7 +40,7 @@ signupForm.addEventListener('submit', (e) => {
             user.sendEmailVerification().then(() => {
                 console.log('email verification sent')
                 //entering a success message when successful
-                document.getElementById('success').innerHTML = '<br>Successful registration!<br>An email has been sent to '+ email +' for account verification. Be sure to check spam!';
+                document.getElementById('success').innerHTML = 'Successful registration!<br>An email has been sent to '+ email +' for account verification. Be sure to check spam!';
             })
             signupForm.reset();
             })
