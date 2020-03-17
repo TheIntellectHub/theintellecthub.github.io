@@ -40,7 +40,7 @@ signupForm.addEventListener('submit', (e) => {
             user.sendEmailVerification().then(() => {
                 console.log('email verification sent')
                 //entering a success message when successful
-                document.getElementById('success').innerHTML = '<p class="text-success text-center"><br>Successful registration!<br>An email has been sent to '+ email +' for account verification. Be sure to check spam!</p>';
+                document.getElementById('success').innerHTML = '<br>Successful registration!<br>An email has been sent to '+ email +' for account verification. Be sure to check spam!';
             })
             signupForm.reset();
             })
@@ -59,6 +59,7 @@ loginForm.addEventListener('submit', (e) => {
     document.getElementById('error1').innerHTML = '';
     
     auth.signInWithEmailAndPassword(email, password).then(cred => {
+        document.getElementByID('success1').innerHTML = 'Success';
     }).catch(err => {
         //error message
         document.getElementById('error1').innerHTML = err.message;
