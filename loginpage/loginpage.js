@@ -65,6 +65,31 @@ loginForm.addEventListener('submit', (e) => {
     })
 })
 
+//forgotpassword
+var forgotpassform = document.getElementById('forgotpass-form');
+forgotpass.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    //get inputted info
+    var email = forgotpassform['forgot-email'].value;
+    var email2 = forgotpassform['forgot-email2'].value;
+
+    //setting up error message if needed
+    document.getElementById('error2').innerHTML = '';
+
+    if (email == email2) {
+        auth.sendPasswordResetEmail(email).then(() => {
+            window.alert('Email has been sent, please check to reset account')
+            location.reload()
+        }).catch(err => {
+            document.getElementById('error2').innerHTML = err.message;
+        })
+    }
+    else {
+        document.getElementById('error2').innerHTML = 'Emails do not match';
+    }
+})
+
 //listen for auth status changes
 auth.onAuthStateChanged(user => {
     if (user) {
