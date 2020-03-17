@@ -74,6 +74,10 @@
             <input type="password" class="form-control" id="register-password" placeholder="6 Characters Min">
           </div>
           
+          <a href="#" data-toggle="modal" data-target="#forgotpass">
+            Forgot Password
+          </a>
+          
           <div id="success"></div>
           <div class="text-danger text-center" id="error"></div>
           <br>
@@ -110,6 +114,39 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-warning">Log In</button>
+              </div>
+            </form>
+            <!--END Inside of Modal-->
+          </div>
+        </div>
+      </div>
+    </div>
+        
+    <div class="modal fade" id="forgotpass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--Inside of Modal-->
+            <form id="forgotpass-form">
+              <div class="form-group">
+                <label for="exampleInputUsername">Input The Email You Registered With Below</label>
+                <input type="email" class="form-control" id="forgot-email" placeholder="Enter Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputUsername">Confirm Email</label>
+                <input type="email" class="form-control" id="forgot-email2" placeholder="Confirm Email">
+              </div>
+              <div class="text-danger text-center" id="error2"></div>
+              <br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning">Reset Password</button>
               </div>
             </form>
             <!--END Inside of Modal-->
